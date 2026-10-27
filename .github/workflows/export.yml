@@ -31,6 +31,11 @@ jobs:
         run: |
           git config user.name "peanut-export"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # always save on top of the latest version (so a « Re-run » of an old run also works)
+          cp peanut-data.json "$RUNNER_TEMP/peanut-data.json"
+          git fetch origin main
+          git checkout -B main origin/main
+          cp "$RUNNER_TEMP/peanut-data.json" peanut-data.json
           git add peanut-data.json
           if git diff --cached --quiet; then
             echo "Nothing changed."
