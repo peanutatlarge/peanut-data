@@ -119,7 +119,7 @@ const shows = expos
       end: date(e['Date fin']),
       images: images(e['Images']),
       credits: txt(e['Crédits photo']) || null,
-      text: txt(e['Texte']) || null,
+      text: txt(e['Texte']) || txt(e['Texte proposé']) || null,
       textFr: txt(e['Texte FR']) || null,
       textDe: txt(e['Texte DE']) || null,
       textIt: txt(e['Texte IT']) || null,
